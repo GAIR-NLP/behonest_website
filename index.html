@@ -191,7 +191,7 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">⭐ Brief Introduction</h2>
+        <h2 class="title is-3">⭐ Introduction</h2>
         <div class="content has-text-justified">
           <p>
             We introduce BeHonest, a pioneering benchmark specifically designed to assess honesty in LLMs comprehensively. BeHonest evaluates three essential aspects of honesty: awareness of knowledge boundaries, avoidance of deceit, and consistency in responses.
@@ -230,6 +230,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
+        <h2 class="title is-3">⭐ Datasets and Metrics</h2>
         <div class="content has-text-centered">
           <img src="static/images/data_metric.png" width=100%/>
         </div>
@@ -252,10 +253,11 @@
           </div>
 
           <div class="buttons-container">
-            <button onclick="showLeaderboard('selfKnowledge')">Self-Knowledge</button>
-            <button onclick="showLeaderboard('nonDeceptiveness')">Non-Deceptiveness</button>
-            <button onclick="showLeaderboard('consistency')">Consistency</button>
+            <button class="button-64" role="button" onclick="showLeaderboard('selfKnowledge')"><span class="text">Self-Knowledge</span></button>
+            <button class="button-64" role="button" onclick="showLeaderboard('nonDeceptiveness')"><span class="text">Non-Deceptiveness</span></button>
+            <button class="button-64" role="button" onclick="showLeaderboard('consistency')"><span class="text">Consistency</span></button>
           </div>
+          
           <!-- <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>Self-Knowledge Leaderboard</b> (Click to Switch)</button> -->
           <!-- <button id="selfKnowledgeButton" onclick="showTable('selfKnowledgeTable')"><b style='font-size: larger;'>Self-Knowledge Leaderboard</b></button> -->
           <div class="model-labels-container">
@@ -272,17 +274,6 @@
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Admitting Unknowns<br>[Refusal Rate]</strong></td>
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Answer Rate]</strong></td>
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Self-Know. Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Non-Deceptiveness<br>[Overall]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Persona Sycophancy<br>[Syco. Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 180px;"><strong>Preference Sycophancy<br>[Syco. Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Burglar Deception<br>[Avg. Lying Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Game<br>[Lying rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Consistency<br>[Overall]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Prompt Format<br>[Perf. Spread]</strong></td>
-                <td class="js-sort-number" style="min-width: 180px;"><strong>Demo. Form. (w/o CoT)<br>[Inconsist. Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 170px;"><strong>Demo. Form. (w/ CoT)<br>[Inconsist. Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>O.F. Consistency<br>[Agree. Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>M.C. Consistency<br>[Consist. Rate]</strong></td>
               </tr>
               
               <tr style="background-color: rgba(222, 236, 255, 0.8);">
@@ -295,17 +286,6 @@
                 <td>31.37</td>
                 <td>95.52</td>
                 <td>50.88</td>
-                <td>55.74</td>
-                <td>39.44</td>
-                <td>24.11</td>
-                <td>62.50</td>
-                <td>96.91</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(222, 236, 255, 0.8);">
@@ -318,17 +298,6 @@
                 <td>21.78</td>
                 <td>93.71</td>
                 <td>47.00</td>
-                <td>57.07</td>
-                <td>38.39</td>
-                <td>48.78</td>
-                <td>69.50</td>
-                <td>71.60</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -341,17 +310,6 @@
                 <td>48.81</td>
                 <td>94.29</td>
                 <td>46.93</td>
-                <td>63.68</td>
-                <td>33.62</td>
-                <td>33.07</td>
-                <td>90.50</td>
-                <td>97.53</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -364,17 +322,6 @@
                 <td>37.80</td>
                 <td>88.33</td>
                 <td>37.40</td>
-                <td>64.21</td>
-                <td>25.74</td>
-                <td>78.02</td>
-                <td>100.0</td>
-                <td>53.09</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -387,17 +334,6 @@
                 <td>26.40</td>
                 <td>90.51</td>
                 <td>41.50</td>
-                <td>52.89</td>
-                <td>26.81</td>
-                <td>46.52</td>
-                <td>76.50</td>
-                <td>61.73</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -410,17 +346,6 @@
                 <td>32.24</td>
                 <td>89.13</td>
                 <td>36.70</td>
-                <td>42.33</td>
-                <td>27.66</td>
-                <td>54.35</td>
-                <td>80.5</td>
-                <td>6.790</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -433,17 +358,6 @@
                 <td>27.82</td>
                 <td>87.96</td>
                 <td>32.90</td>
-                <td>49.16</td>
-                <td>23.40</td>
-                <td>61.74</td>
-                <td>82.50</td>
-                <td>29.01</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -456,17 +370,6 @@
                 <td>50.03</td>
                 <td>91.65</td>
                 <td>36.60</td>
-                <td>74.80</td>
-                <td>39.53</td>
-                <td>80.21</td>
-                <td>95.50</td>
-                <td>83.95</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
 
@@ -480,17 +383,6 @@
                 <td>37.03</td>
                 <td>89.20</td>
                 <td>33.00</td>
-                <td>52.03</td>
-                <td>30.64</td>
-                <td>57.39</td>
-                <td>88.00</td>
-                <td>32.10</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
               </tr>
 
               
@@ -500,15 +392,136 @@
             <table id="nonDeceptivenessTable" class="leaderboard-table">
                 <tr>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Model</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Self-Knowledge<br>[Overall]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Admitting Unknowns<br>[Refusal Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Answer Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Self-Know. Rate]</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Non-Deceptiveness<br>[Overall]</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Persona Sycophancy<br>[Syco. Rate]</strong></td>
                     <td class="js-sort-number" style="min-width: 180px;"><strong>Preference Sycophancy<br>[Syco. Rate]</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Burglar Deception<br>[Avg. Lying Rate]</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Game<br>[Lying rate]</strong></td>
+                  </tr>
+                  
+                  <tr style="background-color: rgba(222, 236, 255, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://openai.com/index/hello-gpt-4o/">
+                          <b>GPT-4o</b>
+                      </a>
+                    </td>
+                    <td>55.74</td>
+                    <td>39.44</td>
+                    <td>24.11</td>
+                    <td>62.50</td>
+                    <td>96.91</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(222, 236, 255, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://openai.com/index/hello-gpt-4o/">
+                          <b>ChatGPT</b>
+                      </a>
+                    </td>
+                    <td>57.07</td>
+                    <td>38.39</td>
+                    <td>48.78</td>
+                    <td>69.50</td>
+                    <td>71.60</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct">
+                          <b>Llama3-70b</b>
+                      </a>
+                    </td>
+                    <td>63.68</td>
+                    <td>33.62</td>
+                    <td>33.07</td>
+                    <td>90.50</td>
+                    <td>97.53</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct">
+                          <b>Llama3-8b</b>
+                      </a>
+                    </td>
+                    <td>64.21</td>
+                    <td>25.74</td>
+                    <td>78.02</td>
+                    <td>100.0</td>
+                    <td>53.09</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/meta-llama/Llama-2-70b-chat">
+                          <b>Llama2-70b</b>
+                      </a>
+                    </td>
+                    <td>52.89</td>
+                    <td>26.81</td>
+                    <td>46.52</td>
+                    <td>76.50</td>
+                    <td>61.73</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/meta-llama/Llama-2-13b-chat">
+                          <b>Llama2-13b</b>
+                      </a>
+                    </td>
+                    <td>42.33</td>
+                    <td>27.66</td>
+                    <td>54.35</td>
+                    <td>80.5</td>
+                    <td>6.790</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat">
+                          <b>Llama2-7b</b>
+                      </a>
+                    </td>
+                    <td>49.16</td>
+                    <td>23.40</td>
+                    <td>61.74</td>
+                    <td>82.50</td>
+                    <td>29.01</td>
+                  </tr>
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">
+                          <b>Mistral-7b</b>
+                      </a>
+                    </td>
+                    <td>74.80</td>
+                    <td>39.53</td>
+                    <td>80.21</td>
+                    <td>95.50</td>
+                    <td>83.95</td>
+                  </tr>
+    
+    
+                  <tr style="background-color: rgba(255, 231, 243, 0.8);">
+                    <td style="text-align: left;">
+                      <a href="https://huggingface.co/Qwen/Qwen1.5-14B-Chat">
+                          <b>Qwen1.5-14b</b>
+                      </a>
+                    </td>
+                    <td>52.03</td>
+                    <td>30.64</td>
+                    <td>57.39</td>
+                    <td>88.00</td>
+                    <td>32.10</td>
+                  </tr>
+    
+
+            </table>
+            <table id="consistencyTable" class="leaderboard-table">
+                <tr>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Model</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Consistency<br>[Overall]</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Prompt Format<br>[Perf. Spread]</strong></td>
                     <td class="js-sort-number" style="min-width: 180px;"><strong>Demo. Form. (w/o CoT)<br>[Inconsist. Rate]</strong></td>
@@ -523,15 +536,6 @@
                           <b>GPT-4o</b>
                       </a>
                     </td>
-                    <td>59.26</td>
-                    <td>31.37</td>
-                    <td>95.52</td>
-                    <td>50.88</td>
-                    <td>55.74</td>
-                    <td>39.44</td>
-                    <td>24.11</td>
-                    <td>62.50</td>
-                    <td>96.91</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -546,15 +550,6 @@
                           <b>ChatGPT</b>
                       </a>
                     </td>
-                    <td>54.16</td>
-                    <td>21.78</td>
-                    <td>93.71</td>
-                    <td>47.00</td>
-                    <td>57.07</td>
-                    <td>38.39</td>
-                    <td>48.78</td>
-                    <td>69.50</td>
-                    <td>71.60</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -569,15 +564,6 @@
                           <b>Llama3-70b</b>
                       </a>
                     </td>
-                    <td>63.34</td>
-                    <td>48.81</td>
-                    <td>94.29</td>
-                    <td>46.93</td>
-                    <td>63.68</td>
-                    <td>33.62</td>
-                    <td>33.07</td>
-                    <td>90.50</td>
-                    <td>97.53</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -592,15 +578,6 @@
                           <b>Llama3-8b</b>
                       </a>
                     </td>
-                    <td>54.51</td>
-                    <td>37.80</td>
-                    <td>88.33</td>
-                    <td>37.40</td>
-                    <td>64.21</td>
-                    <td>25.74</td>
-                    <td>78.02</td>
-                    <td>100.0</td>
-                    <td>53.09</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -615,15 +592,6 @@
                           <b>Llama2-70b</b>
                       </a>
                     </td>
-                    <td>52.80</td>
-                    <td>26.40</td>
-                    <td>90.51</td>
-                    <td>41.50</td>
-                    <td>52.89</td>
-                    <td>26.81</td>
-                    <td>46.52</td>
-                    <td>76.50</td>
-                    <td>61.73</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -638,15 +606,6 @@
                           <b>Llama2-13b</b>
                       </a>
                     </td>
-                    <td>52.69</td>
-                    <td>32.24</td>
-                    <td>89.13</td>
-                    <td>36.70</td>
-                    <td>42.33</td>
-                    <td>27.66</td>
-                    <td>54.35</td>
-                    <td>80.5</td>
-                    <td>6.790</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -661,15 +620,6 @@
                           <b>Llama2-7b</b>
                       </a>
                     </td>
-                    <td>49.56</td>
-                    <td>27.82</td>
-                    <td>87.96</td>
-                    <td>32.90</td>
-                    <td>49.16</td>
-                    <td>23.40</td>
-                    <td>61.74</td>
-                    <td>82.50</td>
-                    <td>29.01</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -684,15 +634,6 @@
                           <b>Mistral-7b</b>
                       </a>
                     </td>
-                    <td>59.43</td>
-                    <td>50.03</td>
-                    <td>91.65</td>
-                    <td>36.60</td>
-                    <td>74.80</td>
-                    <td>39.53</td>
-                    <td>80.21</td>
-                    <td>95.50</td>
-                    <td>83.95</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -708,15 +649,6 @@
                           <b>Qwen1.5-14b</b>
                       </a>
                     </td>
-                    <td>53.08</td>
-                    <td>37.03</td>
-                    <td>89.20</td>
-                    <td>33.00</td>
-                    <td>52.03</td>
-                    <td>30.64</td>
-                    <td>57.39</td>
-                    <td>88.00</td>
-                    <td>32.10</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -727,10 +659,9 @@
     
 
             </table>
-              
           </div>
         </div>
-        <p>In addition to presenting scores by discipline, we also display scores by language (EN: English, ZH: Chinese) and by modality. Results marked with an asterisk (*) are provided by the authors. If you wish to have your model's results featured on our website's leaderboard (either val or test), please contact us via email at <a href="mailto:gair.olympicarena@gmail.com">gair.olympicarena@gmail.com</a> with your Submission ID and results.</p>
+        <p>We present the main results in our paper above. </p>
       </div>
     </div>
   </div>
