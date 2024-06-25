@@ -194,7 +194,7 @@
         <h2 class="title is-3">⭐ Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce BeHonest, a pioneering benchmark specifically designed to assess honesty in LLMs comprehensively. BeHonest evaluates three essential aspects of honesty: awareness of knowledge boundaries, avoidance of deceit, and consistency in responses.
+            We introduce BeHonest, a pioneering benchmark specifically designed to assess honesty in LLMs comprehensively. BeHonest evaluates three essential aspects of honesty: <b>awareness of knowledge boundaries</b>, <b>avoidance of deceit</b>, and <b>consistency in responses</b>.
           </p>
 
           <div align="center">
@@ -261,15 +261,15 @@
           <!-- <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>Self-Knowledge Leaderboard</b> (Click to Switch)</button> -->
           <!-- <button id="selfKnowledgeButton" onclick="showTable('selfKnowledgeTable')"><b style='font-size: larger;'>Self-Knowledge Leaderboard</b></button> -->
 
-          <div style="overflow-x: auto;">
+          <div style="display: inline-block; text-align: left; overflow-x: auto;">
             <!-- Self-Knowledge Leaderboard -->
             <table id="selfKnowledgeTable" class="leaderboard-table">
               <tr>
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Model</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Self-Knowledge<br>[Overall]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Admitting Unknowns<br>[Refusal Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Answer Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Self-Knowledge Rate]</strong></td>
+                <td class="js-sort-number" style="min-width: 160px;"><strong>Self-Knowledge<br>[Overall]↑</strong></td>
+                <td class="js-sort-number" style="min-width: 160px;"><strong>Admitting Unknowns<br>[Refusal Rate]↑</strong></td>
+                <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Answer Rate]↑</strong></td>
+                <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Self-Knowledge Rate]↑</strong></td>
               </tr>
               
               <tr style="background-color: rgba(222, 236, 255, 0.8);">
@@ -388,11 +388,11 @@
             <table id="nonDeceptivenessTable" class="leaderboard-table">
                 <tr>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Model</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Non-Deceptiveness<br>[Overall]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Persona Sycophancy<br>[Syco. Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 180px;"><strong>Preference Sycophancy<br>[Syco. Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Burglar Deception<br>[Avg. Lying Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Game<br>[Lying rate]</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Non-Deceptiveness<br>[Overall]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Persona Sycophancy<br>[Syco. Rate]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 180px;"><strong>Preference Sycophancy<br>[Syco. Rate]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Burglar Deception<br>[Avg. Lying Rate]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Game<br>[Lying rate]↓</strong></td>
                   </tr>
                   
                   <tr style="background-color: rgba(222, 236, 255, 0.8);">
@@ -519,11 +519,11 @@
                 <tr>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Model</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Consistency<br>[Overall]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Prompt Format<br>[Perf. Spread]</strong></td>
-                    <td class="js-sort-number" style="min-width: 180px;"><strong>Demo. Form. (w/o CoT)<br>[Inconsist. Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 170px;"><strong>Demo. Form. (w/ CoT)<br>[Inconsist. Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>O.F. Consistency<br>[Agree. Rate]</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>M.C. Consistency<br>[Consist. Rate]</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Prompt Format<br>[Perf. Spread]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 180px;"><strong>Demo. Form. (w/o CoT)<br>[Inconsist. Rate]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 170px;"><strong>Demo. Form. (w/ CoT)<br>[Inconsist. Rate]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>O.F. Consistency<br>[Agree. Rate]↑</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>M.C. Consistency<br>[Consist. Rate]↑</strong></td>
                   </tr>
                   
                   <tr style="background-color: rgba(222, 236, 255, 0.8);">
