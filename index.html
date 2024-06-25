@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="BeHonest: Benchmarking Honesty of Large Language Models">
+        content="BeHonest">
   <meta name="keywords" content="Honesty, LLMs, Evaluation, Benchmarks">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BeHonest: Benchmarking Honesty of Large Language Models</title>
@@ -152,7 +152,7 @@
             <span class="link-block">
               <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
-                  <p style="font-size:18px">🤝</p>
+                  <p style="font-size:18px">👑</p>
                 </span>
                 <span>Leaderboard</span>
               </a>
@@ -212,17 +212,23 @@
             <img src="static/images/framework.png" width=100%/>
           </div>
             
-
+          <p>
+            BeHonest supports the followin 10 scenarios:
+          </p>
           <ul>
-            <li><b>Comprehensive: </b>The benchmark includes a comprehensive set of 11,163 problems from 62 distinct Olympic competitions, structured with 13 answer types. It spans seven core disciplines: <b>mathematics, physics, chemistry, biology, geography, astronomy, and computer science</b>, encompassing a total of 34 specialized branches</li>
-            <li><b>High-challenging: </b>The benchmark focuses on Olympic-level problems and covers 8 types of logical reasoning abilities and 5 types of visual reasoning abilities.</li>
-            <li><b>Rigorous: </b>Given the increasing scale of pre-training corpora, it is crucial to detect potential benchmark leakage. We employ a recently proposed instance-level leakage detection metric to validate our benchmark’s effectiveness.</li>
-            <li><b>Fine-grained Evaluation: </b>We conduct comprehensive evaluations from both the answer-level and process-level perspectives.  Additionally, we perform fine-grained evaluations and analyses on different types of cognitive reasoning, from both logical and visual perspectives to better interpret the current capabilities of AI.</li>
+            <li><b>Expressing Unknowns: </b>LLMs should appropriately refuse to answer questions that are beyond their knowledge.s</li>
+            <li><b>Admitting Knowns: </b>LLMs should correctly answer questions they have knowledge of.</li>
+            <li><b>Persona Sycophancy: </b>LLMs should not alter its responses to fit perceived viewpoints of a persona, as this can lead to biased information aimed at maintaining approval.</li>
+            <li><b>Preference Sycophancy: </b>LLMs should not change its perspective when a user indicates a clear preference towards one option over another just to maintain approval.</li>
+            <li><b>Burglar Deception Test: </b>LLMs should .....</li>
+            <li><b>Game: </b>LLMs should ...</li>
+            <li><b>Prompt Format: </b>LLMs should remain consistent in their responses when encountering slight prompt variations of the same content.</li>
+            <li><b>Demonstration Format: </b>LLMs should remain consistent in their responses even with irrelevant biased features in few-shot demonstrations.</li>
+            <li><b>Open-Form Consistency: </b>LLMs should display consistency by validating its own generated responses.</li>
+            <li><b>Multiple-Choice Consistency: </b>LLMs should remain consistent in their responses when asked to answer a question again or when a user presents unnecessary doubts.</li>
           </ul>
 
-          <p>
-            Through the OlympicArena, we aim to advance AI towards superintelligence, equipping it to address more complex challenges in science and beyond.
-          </p>
+          
 
         </div>
       </div>
@@ -239,17 +245,14 @@
 
           <div class="content has-text-justified">
             <p>
-              We evaluate various models, including LLMs and LMMs, considering both closed- and open-source versions. All experiments utilize zero-shot prompts, specifically tailored to each answer type and specifying output formats to facilitate answer extraction and rule-based matching. Here is the leaderboard for our benchmark's validation and test sets.
-            </p>
-            <p>
-              Note: The results reported in the paper are based on the combined outcomes from the validation and test sets, as well as some additional problems evaluated by the models. Therefore, they may slightly differ from the data presented below.
+              Currently, our leaderboard consists of evaluation results from 9 popular LLMs on the market, including both closed-source and open-source models from different model families with varied model sizes. We are working on adding more models to the leaderboard to provide a comprehensive evaluation of honesty in LLMs.
             </p>
           </div>
 
-          <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>Validation Set Leaderboard</b> (Click to Switch)</button>
+          <!-- <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>Validation Set Leaderboard</b> (Click to Switch)</button> -->
           <div class="model-labels-container">
             <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
-            <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span>
+            <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Closed-Source</span>
           </div>
 
           <div style="overflow-x: auto;">
