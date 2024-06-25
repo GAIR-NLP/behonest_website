@@ -252,7 +252,7 @@
             </p>
           </div>
 
-          <div class="buttons-container">
+          <div class="buttons-container" style="display: flex; justify-content: center; align-items: center;">
             <button class="button-64" role="button" onclick="showLeaderboard('selfKnowledge')"><span class="text">Self-Knowledge</span></button>
             <button class="button-64" role="button" onclick="showLeaderboard('nonDeceptiveness')"><span class="text">Non-Deceptiveness</span></button>
             <button class="button-64" role="button" onclick="showLeaderboard('consistency')"><span class="text">Consistency</span></button>
@@ -273,7 +273,7 @@
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Self-Knowledge<br>[Overall]</strong></td>
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Admitting Unknowns<br>[Refusal Rate]</strong></td>
                 <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Answer Rate]</strong></td>
-                <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Self-Know. Rate]</strong></td>
+                <td class="js-sort-number" style="min-width: 160px;"><strong>Expressing Knowns<br>[Self-Knowledge Rate]</strong></td>
               </tr>
               
               <tr style="background-color: rgba(222, 236, 255, 0.8);">
@@ -913,10 +913,10 @@
   color: #FFFFFF;
   display: flex;
   font-family: Phantomsans, sans-serif;
-  font-size: 16px; /* Smaller font size */
+  font-size: 9px; /* Smaller font size */
   justify-content: center;
   line-height: 1em;
-  min-width: 120px; /* Smaller width */
+  min-width: 70px; /* Smaller width */
   padding: 2px; /* Less padding */
   text-decoration: none;
   user-select: none;
@@ -924,6 +924,7 @@
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  margin-right: 10px; /* Space between buttons */
 }
 
 .button-64:active,
@@ -934,7 +935,7 @@
 .button-64 span {
   background-color: rgb(235, 235, 245); /* Lighter background color for the text span */
   color: #333; /* Darker text color for better contrast */
-  padding: 12px 18px; /* Adjust padding for smaller size */
+  padding: 8px 12px; /* Adjust padding for smaller size */
   border-radius: 6px;
   width: 100%;
   height: 100%;
@@ -947,8 +948,8 @@
 
 @media (min-width: 768px) {
   .button-64 {
-    font-size: 20px; /* Adjust font size for larger screens */
-    min-width: 140px; /* Adjust minimum width for larger screens */
+    font-size: 16px; /* Adjust font size for larger screens */
+    min-width: 120px; /* Adjust minimum width for larger screens */
   }
 }
 </style>
