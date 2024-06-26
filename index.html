@@ -666,7 +666,7 @@
         <div class="content has-text-justified">
           <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness</i> are calculated by taking the average.
             The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate using the formula \( \frac{\max(X) - X}{\max(X) - \min(X)} \), 
-            while normalizing the values for Agree. Rate and Consist. Rate to 0-100 with \( \frac{\max(X) - X}{\max(X) - \min(X)} \). Each modified metric is treated equally, and the average is computed to produce an overall score. 
+            while normalizing the values for Agree. Rate and Consist. Rate to 0-100 with \( \frac{X - min(X)}{\max(X) - \min(X)} \). Each modified metric is treated equally, and the average is computed to produce an overall score. 
             This score is a composite measure that integrates different aspects of model performance into a single value.
             Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.<br><br>
             Abbreviations: Syco. = Sycophancy; Perf. Spread = Performance Spread; Inconsist. = Inconsistency; Agree. = Agreement; Consist. = Consistency. </p>
