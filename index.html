@@ -661,11 +661,13 @@
             <span class="leaderboard-label" style="background-color: rgba(222, 236, 255, 0.8);">Closed-Source</span>
           </div>
         </div>
-        <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness</i> are calculated by taking the average.
-          The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate ((max-X)/(max-min)), 
-          while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 ((X-min)/(max-min)). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
-          This score is a composite measure that integrates different aspects of model performance into a single value.
-          Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.</p>
+        <div class="content has-text-justified">
+          <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness</i> are calculated by taking the average.
+            The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate ((max-X)/(max-min)), 
+            while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 ((X-min)/(max-min)). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
+            This score is a composite measure that integrates different aspects of model performance into a single value.
+            Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -782,141 +784,6 @@
     });
   });
 </script>
-
-//   function changeButtonText() {
-//     var button = document.getElementById('toggleButton');
-//     if (button.innerHTML.includes("Validation Set Leaderboard")) {
-//       button.innerHTML = "<b style='font-size: larger;'>Test Set Leaderboard</b> (Click to Switch)";
-//     } else {
-//       button.innerHTML = "<b style='font-size: larger;'>Validation Set Leaderboard</b> (Click to Switch)";
-//     }
-//   }
-
-//   function sortTableByOverall(tableId) {
-//     var table = document.getElementById(tableId);
-//     var rows = Array.from(table.rows).slice(1);
-
-//     rows.sort(function(a, b) {
-//       var cellA = parseFloat(a.cells[3].innerText);
-//       var cellB = parseFloat(b.cells[3].innerText);
-//       return cellB - cellA;
-//     });
-
-//     rows.forEach(function(row) {
-//       table.tBodies[0].appendChild(row);
-//     });
-//   }
-
-//   document.addEventListener('DOMContentLoaded', function() {
-//     sortTableByOverall('table1');
-//     sortTableByOverall('table2');
-//   });
-
-//   function toggleTables() {
-//     var table1 = document.getElementById('table1');
-//     var table2 = document.getElementById('table2');
-//     table1.classList.toggle('hidden');
-//     table2.classList.toggle('hidden');
-//   }
-
-//   document.addEventListener('DOMContentLoaded', function() {
-//     document.getElementById('toggleButton').addEventListener('click', toggleTables);
-//   });
-
-//   function addMedalsToLeaderboard(tableId) {
-//     const table = document.getElementById(tableId);
-//     const rows = Array.from(table.rows).slice(1);
-
-//     rows.sort((a, b) => parseFloat(b.cells[3].innerText) - parseFloat(a.cells[3].innerText));
-
-//     rows.forEach((row, index) => {
-//       const modelNameCell = row.cells[0];
-//       let medal = '';
-//       if (index === 0) {
-//         medal = ' 🥇';
-//       } else if (index === 1) {
-//         medal = ' 🥈';
-//       } else if (index === 2) {
-//         medal = ' 🥉';
-//       }
-//       modelNameCell.innerHTML += medal;
-//     });
-
-//     rows.forEach(row => {
-//       table.tBodies[0].appendChild(row);
-//     });
-//   }
-
-//   function calculateMedalCounts() {
-//     const table = document.getElementById('table2');
-//     const rows = Array.from(table.rows).slice(1);
-
-//     const medalCounts = {};
-
-//     rows.forEach(row => {
-//       const modelName = row.cells[0].innerText.trim().replace(/ 🥇| 🥈| 🥉/g, '');
-//       if (!medalCounts[modelName]) {
-//         medalCounts[modelName] = { gold: 0, silver: 0, bronze: 0, overall: parseFloat(row.cells[3].innerText) };
-//       }
-//     });
-
-//     const disciplines = ['Math', 'Physics', 'Chemistry', 'Biology', 'Geography', 'Astronomy', 'CS'];
-//     disciplines.forEach((discipline, index) => {
-//       const scores = rows.map(row => ({
-//         model: row.cells[0].innerText.trim().replace(/ 🥇| 🥈| 🥉/g, ''),
-//         score: parseFloat(row.cells[4 + index].innerText)
-//       }));
-//       scores.sort((a, b) => b.score - a.score);
-      
-//       if (scores.length > 0) medalCounts[scores[0].model].gold += 1;
-//       if (scores.length > 1) medalCounts[scores[1].model].silver += 1;
-//       if (scores.length > 2) medalCounts[scores[2].model].bronze += 1;
-//     });
-
-//     const sortedMedalCounts = Object.entries(medalCounts).sort((a, b) => {
-//       if (b[1].gold !== a[1].gold) return b[1].gold - a[1].gold;
-//       return b[1].overall - a[1].overall;
-//     });
-
-//     return sortedMedalCounts;
-//   }
-
-//   function generateMedalLeaderboard() {
-//     const sortedMedalCounts = calculateMedalCounts();
-
-//     const table = document.createElement('table');
-//     <!-- table.classList.add('js-sort-table'); -->
-
-//     const headerRow = table.insertRow();
-//     ['Rank', 'Model', 'Gold', 'Silver', 'Bronze', 'Overall'].forEach(text => {
-//       const cell = document.createElement('th');
-//       cell.textContent = text;
-//       headerRow.appendChild(cell);
-//     });
-
-//     sortedMedalCounts.forEach(([model, counts], index) => {
-//       const row = table.insertRow();
-//       row.insertCell().textContent = index + 1;
-//       row.insertCell().textContent = model;
-//       row.insertCell().textContent = counts.gold;
-//       row.insertCell().textContent = counts.silver;
-//       row.insertCell().textContent = counts.bronze;
-//       row.insertCell().textContent = counts.overall;
-//     });
-
-//     const container = document.getElementById('medal-leaderboard');
-//     container.innerHTML = '';
-//     container.appendChild(table);
-//   }
-
-//   document.addEventListener('DOMContentLoaded', function() {
-//     addMedalsToLeaderboard('table1');
-//     addMedalsToLeaderboard('table2');
-//     generateMedalLeaderboard();
-//   });
-
-
-
 
 
 <style>
