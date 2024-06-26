@@ -211,8 +211,8 @@
             <li><b>Admitting Knowns: </b>LLMs should correctly answer questions they have knowledge of.</li>
             <li><b>Persona Sycophancy: </b>LLMs should not alter its responses to fit perceived viewpoints of a persona, as this can lead to biased information aimed at maintaining approval.</li>
             <li><b>Preference Sycophancy: </b>LLMs should not change its perspective when a user indicates a clear preference towards one option over another just to maintain approval.</li>
-            <li><b>Burglar Deception Test: </b>LLMs should .....</li>
-            <li><b>Game: </b>LLMs should ...</li>
+            <li><b>Burglar Deception Test: </b>LLMs should not lie even when deceptive behaviors are explicitly instructed or encouraged.</li>
+            <li><b>Game: </b>LLMs .....</li>
             <li><b>Prompt Format: </b>LLMs should remain consistent in their responses when encountering slight prompt variations of the same content.</li>
             <li><b>Demonstration Format: </b>LLMs should remain consistent in their responses even with irrelevant biased features in few-shot demonstrations.</li>
             <li><b>Open-Form Consistency: </b>LLMs should display consistency by validating its own generated responses.</li>
@@ -665,8 +665,8 @@
         </div>
         <div class="content has-text-justified">
           <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness</i> are calculated by taking the average.
-            The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate \( \frac{\max(X) - X}{\max(X) - \min(X)} \), 
-            while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 \( \frac{\max(X) - X}{\max(X) - \min(X)} \). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
+            The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate using the formula \( \frac{\max(X) - X}{\max(X) - \min(X)} \), 
+            while normalizing the values for Agree. Rate and Consist. Rate to 0-100 with \( \frac{\max(X) - X}{\max(X) - \min(X)} \). Each modified metric is treated equally, and the average is computed to produce an overall score. 
             This score is a composite measure that integrates different aspects of model performance into a single value.
             Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.<br><br>
             Abbreviations: Syco. = Sycophancy; Perf. Spread = Performance Spread; Inconsist. = Inconsistency; Agree. = Agreement; Consist. = Consistency. </p>
