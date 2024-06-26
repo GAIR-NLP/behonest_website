@@ -194,7 +194,7 @@
         <h2 class="title is-3">⭐ Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce BeHonest, a pioneering benchmark specifically designed to assess honesty in LLMs comprehensively. BeHonest evaluates three essential aspects of honesty: <i>awareness of knowledge boundaries (self-knowledge)</i>, <i>avoidance of deceit (non-deceptiveness)</i>, and <i>consistency in responses (consistency)</i>.
+            We introduce BeHonest, a pioneering benchmark specifically designed to assess honesty in LLMs comprehensively. BeHonest evaluates three essential aspects of honesty: <i>awareness of knowledge boundaries <b>(self-knowledge)</b></i>, <i>avoidance of deceit <b>(non-deceptiveness)</b></i>, and <i>consistency in responses <b>(consistency)</b></i>.
           </p>
 
           <div align="center">
@@ -518,9 +518,9 @@
             <table id="consistencyTable" class="leaderboard-table">
                 <tr>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Model</strong></td>
-                    <td class="js-sort-number" style="min-width: 160px;"><strong>Consistency<br>[Overall]</strong></td>
+                    <td class="js-sort-number" style="min-width: 160px;"><strong>Consistency<br>[Overall]↑</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>Prompt Format<br>[Perf. Spread]↓</strong></td>
-                    <td class="js-sort-number" style="min-width: 190px;"><strong>Demo. Form. (w/o CoT)<br>[Inconsist. Rate]↓</strong></td>
+                    <td class="js-sort-number" style="min-width: 200px;"><strong>Demo. Form. (w/o CoT)<br>[Inconsist. Rate]↓</strong></td>
                     <td class="js-sort-number" style="min-width: 190px;"><strong>Demo. Form. (w/ CoT)<br>[Inconsist. Rate]↓</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>O.F. Consistency<br>[Agree. Rate]↑</strong></td>
                     <td class="js-sort-number" style="min-width: 160px;"><strong>M.C. Consistency<br>[Consist. Rate]↑</strong></td>
@@ -532,7 +532,7 @@
                           <b>GPT-4o</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>95.18</td>
                     <td>2.120</td>
                     <td>7.670</td>
                     <td>3.020</td>
@@ -546,7 +546,7 @@
                           <b>ChatGPT</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>68.13</td>
                     <td>3.110</td>
                     <td>50.49</td>
                     <td>11.39</td>
@@ -560,7 +560,7 @@
                           <b>Llama3-70b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>64.75</td>
                     <td>5.250</td>
                     <td>30.99</td>
                     <td>1.140</td>
@@ -574,7 +574,7 @@
                           <b>Llama3-8b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>49.49</td>
                     <td>5.500</td>
                     <td>57.01</td>
                     <td>18.50</td>
@@ -588,7 +588,7 @@
                           <b>Llama2-70b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>51.77</td>
                     <td>4.250</td>
                     <td>57.89</td>
                     <td>25.94</td>
@@ -602,7 +602,7 @@
                           <b>Llama2-13b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>39.07</td>
                     <td>6.500</td>
                     <td>75.53</td>
                     <td>31.76</td>
@@ -616,7 +616,7 @@
                           <b>Llama2-7b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>38.83</td>
                     <td>3.250</td>
                     <td>82.08</td>
                     <td>49.59</td>
@@ -630,7 +630,7 @@
                           <b>Mistral-7b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>69.03</td>
                     <td>2.750</td>
                     <td>35.19</td>
                     <td>27.43</td>
@@ -645,7 +645,7 @@
                           <b>Qwen1.5-14b</b>
                       </a>
                     </td>
-                    <td>-</td>
+                    <td>79.85</td>
                     <td>3.000</td>
                     <td>17.77</td>
                     <td>2.520</td>
@@ -661,7 +661,10 @@
             <span class="leaderboard-label" style="background-color: rgba(222, 236, 255, 0.8);">Closed-Source</span>
           </div>
         </div>
-        <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness<i/> are calculated by taking the average.
+        <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness</i> are calculated by taking the average.
+          The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate ((max-X)/(max-min)), 
+          while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 ((X-min)/(max-min)). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
+          This score is a composite measure that integrates different aspects of model performance into a single value.
           Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.</p>
       </div>
     </div>
@@ -750,6 +753,7 @@
   // Initially display the Self-Knowledge table
   document.addEventListener('DOMContentLoaded', function() {
     showLeaderboard('selfKnowledge');
+    sortTableByColumn('selfKnowledgeTable', 1, false); // Sort by "Self-Knowledge [Overall]" in descending order by default
   });
 
   function sortTableByColumn(tableId, colIndex, ascending = true) {
@@ -757,8 +761,8 @@
     var rows = Array.from(table.rows).slice(1);
 
     rows.sort(function(a, b) {
-      var cellA = parseFloat(a.cells[colIndex].innerText);
-      var cellB = parseFloat(b.cells[colIndex].innerText);
+      var cellA = parseFloat(a.cells[colIndex].innerText) || 0;
+      var cellB = parseFloat(b.cells[colIndex].innerText) || 0;
       return ascending ? cellA - cellB : cellB - cellA;
     });
 
@@ -768,17 +772,17 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('selfKnowledgeTable').addEventListener('click', function() {
-      sortTableByColumn('selfKnowledgeTable', 1, false); // Sort by "Self-Knowledge [Overall]" in descending order
-    });
-
-    document.getElementById('nonDeceptivenessTable').addEventListener('click', function() {
-      sortTableByColumn('nonDeceptivenessTable', 1, true); // Sort by "Non-Deceptiveness [Overall]" in ascending order
-    });
-    document.getElementById('consistencyTable').addEventListener('click', function() {
-      sortTableByColumn('consistencyTable', 1, false); // Sort by "consistency [Overall]" in descending order
+    document.querySelectorAll('.leaderboard-table th').forEach(function(header, index) {
+      header.addEventListener('click', function() {
+        var tableId = header.closest('table').id;
+        var ascending = !header.classList.contains('ascending');
+        sortTableByColumn(tableId, index, ascending);
+        header.classList.toggle('ascending', ascending);
+      });
     });
   });
+</script>
+
 //   function changeButtonText() {
 //     var button = document.getElementById('toggleButton');
 //     if (button.innerHTML.includes("Validation Set Leaderboard")) {
@@ -910,10 +914,6 @@
 //     addMedalsToLeaderboard('table2');
 //     generateMedalLeaderboard();
 //   });
-
-
-</script>
-
 
 
 
