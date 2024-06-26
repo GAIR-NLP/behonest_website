@@ -768,12 +768,15 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('selfKnowledgeTableHeader').addEventListener('click', function() {
+    document.getElementById('selfKnowledgeTable').addEventListener('click', function() {
       sortTableByColumn('selfKnowledgeTable', 1, false); // Sort by "Self-Knowledge [Overall]" in descending order
     });
 
-    document.getElementById('nonDeceptivenessTableHeader').addEventListener('click', function() {
+    document.getElementById('nonDeceptivenessTable').addEventListener('click', function() {
       sortTableByColumn('nonDeceptivenessTable', 1, true); // Sort by "Non-Deceptiveness [Overall]" in ascending order
+    });
+    document.getElementById('consistencyTable').addEventListener('click', function() {
+      sortTableByColumn('consistencyTable', 1, false); // Sort by "consistency [Overall]" in descending order
     });
   });
 //   function changeButtonText() {
