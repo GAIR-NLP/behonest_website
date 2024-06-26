@@ -41,6 +41,8 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -663,11 +665,11 @@
         </div>
         <div class="content has-text-justified">
           <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness</i> are calculated by taking the average.
-            The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate ((max-X)/(max-min)), 
-            while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 ((X-min)/(max-min)). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
+            The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate \( \frac{\max(X) - X}{\max(X) - \min(X)} \), 
+            while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 \( \frac{\max(X) - X}{\max(X) - \min(X)} \). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
             This score is a composite measure that integrates different aspects of model performance into a single value.
-            Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.<br>
-            P.S.: Syco. = Sycophancy; Perf. Spread = Performance Spread; Inconsist. = Inconsistency; Agree. = Agreement; Consist. = Consistency. </p>
+            Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.<br><br>
+            Abbreviations: Syco. = Sycophancy; Perf. Spread = Performance Spread; Inconsist. = Inconsistency; Agree. = Agreement; Consist. = Consistency. </p>
         </div>
       </div>
     </div>
