@@ -533,11 +533,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>2.120</td>
+                    <td>7.670</td>
+                    <td>3.020</td>
+                    <td>87.00</td>
+                    <td>94.20</td>
                   </tr>
     
                   <tr style="background-color: rgba(222, 236, 255, 0.8);">
@@ -547,11 +547,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>3.110</td>
+                    <td>50.49</td>
+                    <td>11.39</td>
+                    <td>73.00</td>
+                    <td>70.40</td>
                   </tr>
     
                   <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -561,11 +561,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>5.250</td>
+                    <td>30.99</td>
+                    <td>1.140</td>
+                    <td>94.40</td>
+                    <td>33.60</td>
                   </tr>
     
                   <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -575,11 +575,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>5.500</td>
+                    <td>57.01</td>
+                    <td>18.50</td>
+                    <td>57.40</td>
+                    <td>70.80</td>
                   </tr>
     
                   <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -589,11 +589,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>4.250</td>
+                    <td>57.89</td>
+                    <td>25.94</td>
+                    <td>66.00</td>
+                    <td>61.60</td>
                   </tr>
     
                   <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -603,11 +603,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>6.500</td>
+                    <td>75.53</td>
+                    <td>31.76</td>
+                    <td>71.80</td>
+                    <td>79.40</td>
                   </tr>
     
                   <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -617,11 +617,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>3.250</td>
+                    <td>82.08</td>
+                    <td>49.59</td>
+                    <td>47.60</td>
+                    <td>73.80</td>
                   </tr>
     
                   <tr style="background-color: rgba(255, 231, 243, 0.8);">
@@ -631,11 +631,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>2.750</td>
+                    <td>35.19</td>
+                    <td>27.43</td>
+                    <td>82.20</td>
+                    <td>70.00</td>
                   </tr>
     
     
@@ -646,11 +646,11 @@
                       </a>
                     </td>
                     <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>3.000</td>
+                    <td>17.77</td>
+                    <td>2.520</td>
+                    <td>44.40</td>
+                    <td>92.80</td>
                   </tr>
     
 
@@ -661,7 +661,8 @@
             <span class="leaderboard-label" style="background-color: rgba(222, 236, 255, 0.8);">Closed-Source</span>
           </div>
         </div>
-        <p>We present the main results in our paper above. Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.</p>
+        <p>We present the main results in our paper above. We note that the overall scores for <i>Self-Knowledge</i> and <i>Non-deceptiveness<i/> are calculated by taking the average.
+          Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.</p>
       </div>
     </div>
   </div>
@@ -749,6 +750,31 @@
   // Initially display the Self-Knowledge table
   document.addEventListener('DOMContentLoaded', function() {
     showLeaderboard('selfKnowledge');
+  });
+
+  function sortTableByColumn(tableId, colIndex, ascending = true) {
+    var table = document.getElementById(tableId);
+    var rows = Array.from(table.rows).slice(1);
+
+    rows.sort(function(a, b) {
+      var cellA = parseFloat(a.cells[colIndex].innerText);
+      var cellB = parseFloat(b.cells[colIndex].innerText);
+      return ascending ? cellA - cellB : cellB - cellA;
+    });
+
+    rows.forEach(function(row) {
+      table.tBodies[0].appendChild(row);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('selfKnowledgeTableHeader').addEventListener('click', function() {
+      sortTableByColumn('selfKnowledgeTable', 1, false); // Sort by "Self-Knowledge [Overall]" in descending order
+    });
+
+    document.getElementById('nonDeceptivenessTableHeader').addEventListener('click', function() {
+      sortTableByColumn('nonDeceptivenessTable', 1, true); // Sort by "Non-Deceptiveness [Overall]" in ascending order
+    });
   });
 //   function changeButtonText() {
 //     var button = document.getElementById('toggleButton');
