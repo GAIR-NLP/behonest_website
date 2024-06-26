@@ -666,7 +666,8 @@
             The overall score for <i>Consistency</i> is calculated by reversing the values for Perf. Spread and Inconsistency Rate ((max-X)/(max-min)), 
             while normalizing the values for Agree. Rate and Consist. Rate to scale the metric to 0-100 ((X-min)/(max-min)). Each normalized metric is treated equally, and their average is computed to produce an overall score. 
             This score is a composite measure that integrates different aspects of model performance into a single value.
-            Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.</p>
+            Our findings indicate that there is still significant room for improvement in the honesty of LLMs. We also encourage the AI community to prioritize honesty alignment in LLMs.<br>
+            P.S.: Syco. = Sycophancy; Perf. Spread = Performance Spread; Inconsist. = Inconsistency; Agree. = Agreement; Consist. = Consistency. </p>
         </div>
       </div>
     </div>
@@ -734,55 +735,112 @@
 
 <script>
   function showLeaderboard(type) {
-    // Hide all leaderboards initially
-    var allTables = document.querySelectorAll('.leaderboard-table');
-    allTables.forEach(table => table.style.display = 'none');
+  // Hide all leaderboards initially
+  var allTables = document.querySelectorAll('.leaderboard-table');
+  allTables.forEach(table => table.style.display = 'none');
+  
+  // Show and sort the selected leaderboard
+  var table, isAscending;
+  switch (type) {
+    case 'selfKnowledge':
+      table = document.getElementById('selfKnowledgeTable');
+      isAscending = false;  // Higher values at the top
+      break;
+    case 'nonDeceptiveness':
+      table = document.getElementById('nonDeceptivenessTable');
+      isAscending = true;  // Lower values at the top
+      break;
+    case 'consistency':
+      table = document.getElementById('consistencyTable');
+      isAscending = false;  // Higher values at the top
+      break;
+  }
+
+  table.style.display = 'block';
+  sortTableByColumn(table.id, 1, isAscending);
+}
+
+function sortTableByColumn(tableId, colIndex, ascending = true) {
+  var table = document.getElementById(tableId);
+  var rows = Array.from(table.rows).slice(1);
+
+  rows.sort(function(a, b) {
+    var cellA = parseFloat(a.cells[colIndex].innerText) || 0;
+    var cellB = parseFloat(b.cells[colIndex].innerText) || 0;
+    return ascending ? cellA - cellB : cellB - cellA;
+  });
+
+  rows.forEach(function(row) {
+    table.tBodies[0].appendChild(row);
+  });
+}
+
+// Initialize the sorting for each leaderboard upon page load
+document.addEventListener('DOMContentLoaded', function() {
+  showLeaderboard('selfKnowledge'); // Show and sort self-knowledge by default
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.leaderboard-table th').forEach(function(header, index) {
+    header.addEventListener('click', function() {
+      var tableId = header.closest('table').id;
+      var ascending = !header.classList.contains('ascending');
+      sortTableByColumn(tableId, index, ascending);
+      header.classList.toggle('ascending', ascending);
+    });
+  });
+});
+
+  // function showLeaderboard(type) {
+  //   // Hide all leaderboards initially
+  //   var allTables = document.querySelectorAll('.leaderboard-table');
+  //   allTables.forEach(table => table.style.display = 'none');
     
-    // Show the selected leaderboard
-    switch (type) {
-      case 'selfKnowledge':
-        document.getElementById('selfKnowledgeTable').style.display = 'block';
-        break;
-      case 'nonDeceptiveness':
-        document.getElementById('nonDeceptivenessTable').style.display = 'block';
-        break;
-      case 'consistency':
-        document.getElementById('consistencyTable').style.display = 'block';
-        break;
-    }
-  }
+  //   // Show the selected leaderboard
+  //   switch (type) {
+  //     case 'selfKnowledge':
+  //       document.getElementById('selfKnowledgeTable').style.display = 'block';
+  //       break;
+  //     case 'nonDeceptiveness':
+  //       document.getElementById('nonDeceptivenessTable').style.display = 'block';
+  //       break;
+  //     case 'consistency':
+  //       document.getElementById('consistencyTable').style.display = 'block';
+  //       break;
+  //   }
+  // }
 
-  // Initially display the Self-Knowledge table
-  document.addEventListener('DOMContentLoaded', function() {
-    showLeaderboard('selfKnowledge');
-    sortTableByColumn('selfKnowledgeTable', 1, false); // Sort by "Self-Knowledge [Overall]" in descending order by default
-  });
+  // // Initially display the Self-Knowledge table
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   showLeaderboard('selfKnowledge');
+  //   sortTableByColumn('selfKnowledgeTable', 1, false); // Sort by "Self-Knowledge [Overall]" in descending order by default
+  // });
 
-  function sortTableByColumn(tableId, colIndex, ascending = true) {
-    var table = document.getElementById(tableId);
-    var rows = Array.from(table.rows).slice(1);
+  // function sortTableByColumn(tableId, colIndex, ascending = true) {
+  //   var table = document.getElementById(tableId);
+  //   var rows = Array.from(table.rows).slice(1);
 
-    rows.sort(function(a, b) {
-      var cellA = parseFloat(a.cells[colIndex].innerText) || 0;
-      var cellB = parseFloat(b.cells[colIndex].innerText) || 0;
-      return ascending ? cellA - cellB : cellB - cellA;
-    });
+  //   rows.sort(function(a, b) {
+  //     var cellA = parseFloat(a.cells[colIndex].innerText) || 0;
+  //     var cellB = parseFloat(b.cells[colIndex].innerText) || 0;
+  //     return ascending ? cellA - cellB : cellB - cellA;
+  //   });
 
-    rows.forEach(function(row) {
-      table.tBodies[0].appendChild(row);
-    });
-  }
+  //   rows.forEach(function(row) {
+  //     table.tBodies[0].appendChild(row);
+  //   });
+  // }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.leaderboard-table th').forEach(function(header, index) {
-      header.addEventListener('click', function() {
-        var tableId = header.closest('table').id;
-        var ascending = !header.classList.contains('ascending');
-        sortTableByColumn(tableId, index, ascending);
-        header.classList.toggle('ascending', ascending);
-      });
-    });
-  });
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   document.querySelectorAll('.leaderboard-table th').forEach(function(header, index) {
+  //     header.addEventListener('click', function() {
+  //       var tableId = header.closest('table').id;
+  //       var ascending = !header.classList.contains('ascending');
+  //       sortTableByColumn(tableId, index, ascending);
+  //       header.classList.toggle('ascending', ascending);
+  //     });
+  //   });
+  // });
 </script>
 
 
